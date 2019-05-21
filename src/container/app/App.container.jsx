@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+// ! Redux
+import { connect } from "react-redux";
+import { getUsersRequest } from "../../shared/redux/actions/users.action";
 
-function App() {
+function App({ getUsersRequest, users }) {
+  useEffect(() => {
+    getUsersRequest();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Hola mundo desde sagas</p>
+        {users.items.map((user, index) => (
+          <p key={index}>{user.name}</p>
+        ))}
       </header>
     </div>
   );
 }
 
-export default App;
+export default connect(
+  ({ users }) => ({ users }),
+  { getUsersRequest }
+)(App);

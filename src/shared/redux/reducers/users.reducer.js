@@ -1,6 +1,8 @@
-import { GET_USERS_REQUEST, GET_USERS_SUCCESS } from "../types/users.types";
+import { GET_USERS_SUCCESS } from "../types/users.types";
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  items: []
+};
 
 export default function users(state = INITIAL_STATE, action) {
   switch (action.type) {
