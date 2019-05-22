@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import configureStore from "./shared/redux/store/create_store.store";
 import { sagaMiddleware } from "./shared/redux/store/create_store.store";
 import rootSaga from "./shared/redux/sagas/index.saga";
-
+// * Styles
+import "bootstrap/dist/css/bootstrap.min.css";
 // ? Axios
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 
